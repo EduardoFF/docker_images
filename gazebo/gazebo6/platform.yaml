@@ -5,7 +5,8 @@ platform:
     os_name: ubuntu
     os_code_name: trusty
     user_name: gazebo
+    maintainer_name:
     arch: amd64
     type: distribution
     version: 6
-    package_version: 6.5.1
+    package_version: 6.7.0

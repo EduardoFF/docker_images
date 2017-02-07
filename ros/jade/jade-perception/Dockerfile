@@ -1,8 +1,7 @@
 # This is an auto generated Dockerfile for ros:jade-perception
 # generated from templates/docker_images/create_ros_image.Dockerfile.em
-# generated on 2015-06-10 19:52:57 -0700
+# generated on 2017-01-27 02:33:58 +0000
 FROM ros:jade-ros-base
-MAINTAINER Dirk Thomas dthomas+buildfarm@osrfoundation.org
 
 # install ros packages
 RUN apt-get update && apt-get install -y \

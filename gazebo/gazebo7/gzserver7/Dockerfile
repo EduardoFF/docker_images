@@ -1,8 +1,7 @@
 # This is an auto generated Dockerfile for gazebo:gzserver7
 # generated from templates/docker_images/create_gzserver_image.Dockerfile.em
-# generated on 2016-02-06 15:43:45 +0000
+# generated on 2017-01-27 02:26:09 +0000
 FROM ubuntu:trusty
-MAINTAINER Nate Koenig nkoenig@osrfoundation.org
 
 # setup keys
 RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys D2486D2DD83DB69272AFE98867170598AF249743
@@ -12,7 +11,7 @@ RUN echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_releas
 
 # install gazebo packages
 RUN apt-get update && apt-get install -q -y \
-    gazebo7=7.0.0* \
+    gazebo7=7.5.0* \
     && rm -rf /var/lib/apt/lists/*
 
 # setup environment
