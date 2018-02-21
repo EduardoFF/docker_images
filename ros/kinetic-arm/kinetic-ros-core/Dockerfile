@@ -1,7 +1,7 @@
 # This is an auto generated Dockerfile for ros:kinetic-ros-core
 # generated from templates/docker_images/create_ros_core_image.Dockerfile.em
 # generated on 2017-01-27 02:34:03 +0000
-FROM osrf:ubuntu_armhf
+FROM osrf/ubuntu_armhf:xenial
 
 # setup environment
 RUN locale-gen en_US.UTF-8
@@ -32,6 +32,6 @@ RUN apt-get update && apt-get install -y \
 
 # setup entrypoint
 COPY ./ros_entrypoint.sh /
-
+RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]

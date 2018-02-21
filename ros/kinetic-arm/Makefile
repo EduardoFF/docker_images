@@ -10,8 +10,9 @@ help:
 	@echo ""
 
 build:
-	@docker build --tag=ros:kinetic-ros-core          kinetic-ros-core/.
-	@docker build --tag=ros:kinetic-ros-base          kinetic-ros-base/.
+	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-core          kinetic-ros-core/.
+	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-base          kinetic-ros-base/.
+	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-dev           kinetic-ros-dev/.
 	# @docker build --tag=ros:kinetic-robot             kinetic-robot/.
 	# @docker build --tag=ros:kinetic-perception        kinetic-perception/.
 	# @docker build --tag=osrf/ros:kinetic-desktop      kinetic-desktop/.
