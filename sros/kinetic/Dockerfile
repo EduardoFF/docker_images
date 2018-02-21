@@ -1,13 +1,14 @@
 # This is a Dockerfile for osrf/sros:kinetic with SROS
 FROM ubuntu:xenial
-MAINTAINER Tully Foote tfoote+buildfarm@osrfoundation.org
 
-# setup environment
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
+# install packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    dirmngr \
+    gnupg2 \
+    && rm -rf /var/lib/apt/lists/*
 
 # setup keys
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
 
 # setup sources.list
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
@@ -29,6 +30,10 @@ RUN apt-get update && \
             wget \
             python-pip && \
     rm -rf /var/lib/apt/lists/*
+
+# setup environment
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 # set envormetn and workspace
 ENV ROS_DISTRO kinetic
@@ -60,16 +65,15 @@ RUN apt-get update && \
     pip install --upgrade ../rospkg/ && \
     rm -rf /var/lib/apt/lists/*
 
-# HACK, replacing shell with bash for later docker build commands
-RUN mv /bin/sh /bin/sh-old && \
-    ln -s /bin/bash /bin/sh
-
 # build repo
 WORKDIR $CATKIN_WS
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
 RUN catkin config --install && \
     catkin build --no-status --summarize
+
+# setup demo bashrc
+RUN echo 'source "$CATKIN_WS/install/setup.bash"' >> ~/.bashrc
 
 # setup demo config
 COPY ./config /root/.ros/sros/config/
