@@ -17,12 +17,12 @@ RUN apt-get update && apt-get install -q -y \
     npm \
     pkg-config \
     psmisc \
-    xvfb\
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 # install gazebo packages
 RUN apt-get update && apt-get install -q -y \
-    libgazebo8-dev=8.3.0-1* \
+    libgazebo8-dev=8.4.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
 # clone gzweb

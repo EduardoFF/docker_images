@@ -9,7 +9,7 @@ images:
         entrypoint_name: docker_images/ros2_source_entrypoint.sh
         template_packages:
             - docker_templates
-        packages:
+        upstream_packages:
             - bash-completion
             - build-essential
             - clang-format
@@ -29,7 +29,6 @@ images:
             - libqt5gui5
             - libqt5opengl5
             - libqt5widgets5
-            - libopensplice67
             - libssl-dev
             - libtinyxml-dev
             - libtinyxml2-dev
@@ -44,14 +43,15 @@ images:
             - python3-mock
             - python3-nose
             - python3-pep8
-            - python3-pip
             - python3-pyparsing
             - python3-setuptools
-            - python3-vcstool
             - python3-yaml
             - qtbase5-dev
             - uncrustify
             - wget
+        ros2_repo_packages:
+            - libopensplice67
+            - python3-vcstool
         pip3_install:
             - argcomplete
             - flake8

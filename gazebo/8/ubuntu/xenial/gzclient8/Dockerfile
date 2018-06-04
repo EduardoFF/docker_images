@@ -7,10 +7,10 @@ RUN apt-get update && apt-get install -q -y \
     binutils \
     mesa-utils \
     module-init-tools \
-    x-window-system\
+    x-window-system \
     && rm -rf /var/lib/apt/lists/*
 
 # install gazebo packages
 RUN apt-get update && apt-get install -q -y \
-    gazebo8=8.3.0-1* \
+    gazebo8=8.4.0-1* \
     && rm -rf /var/lib/apt/lists/*
