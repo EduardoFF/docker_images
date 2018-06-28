@@ -13,23 +13,18 @@ build:
 	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-core          kinetic-ros-core/.
 	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-base          kinetic-ros-base/.
 	@docker build --tag=jeguzzi/ros:armhf-kinetic-ros-dev           kinetic-ros-dev/.
-	# @docker build --tag=ros:kinetic-robot             kinetic-robot/.
-	# @docker build --tag=ros:kinetic-perception        kinetic-perception/.
-	# @docker build --tag=osrf/ros:kinetic-desktop      kinetic-desktop/.
-	# @docker build --tag=osrf/ros:kinetic-desktop-full kinetic-desktop-full/.
 
 pull:
-	@docker pull ros:kinetic-ros-core
-	@docker pull ros:kinetic-ros-base
-	@docker pull ros:kinetic-robot
-	@docker pull ros:kinetic-perception
-	@docker pull osrf/ros:kinetic-desktop
-	@docker pull osrf/ros:kinetic-desktop-full
+	@docker pull jeguzzi/ros:armhf-kinetic-ros-core
+	@docker pull jeguzzi/ros:armhf-kinetic-ros-base
+	@docker pull jeguzzi/ros:armhf-kinetic-ros-dev
 
 clean:
-	@docker rmi -f ros:kinetic-ros-core
-	@docker rmi -f ros:kinetic-ros-base
-	@docker rmi -f ros:kinetic-robot
-	@docker rmi -f ros:kinetic-perception
-	@docker rmi -f osrf/ros:kinetic-desktop
-	@docker rmi -f osrf/ros:kinetic-desktop-full
+	@docker rmi -f jeguzzi/ros:armhf-kinetic-ros-core
+	@docker rmi -f jeguzzi/ros:armhf-kinetic-ros-base
+	@docker rmi -f jeguzzi/ros:armhf-kinetic-ros-dev
+
+push:
+	@docker push jeguzzi/ros:armhf-kinetic-ros-core
+	@docker push jeguzzi/ros:armhf-kinetic-ros-base
+	@docker push jeguzzi/ros:armhf-kinetic-ros-dev
